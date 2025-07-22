@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Book>
+
+@{
+
+}
+
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YearPublished)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.YearPublished</td>
+                        <td>@(book.Author.FirstName + " " + book.Author.LastName)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
